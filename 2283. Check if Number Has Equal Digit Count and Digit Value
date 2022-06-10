@@ -1,0 +1,39 @@
+class Solution {
+    public boolean digitCount(String s) {
+HashMap<Character,Integer> hm = new HashMap<Character,Integer>();
+
+for (int i = 0; i <s.length(); i++) {
+	
+	if(hm.containsKey(s.charAt(i))) {
+		
+		int tmp = hm.get(s.charAt(i));
+		tmp++;
+		hm.put(s.charAt(i), tmp);
+	}
+	else {
+		hm.put(s.charAt(i),1);
+	}
+}
+	for (int i = 0; i < s.length(); i++) {
+		
+		int tmp = Integer.parseInt(s.charAt(i)+"");
+		char ch = (i+"").charAt(0);
+		
+
+		if(hm.get(ch)==null) {
+			if(tmp!=0) {
+				return false;
+			}
+		}else {
+			
+			if(hm.get(ch)!=tmp) {
+				return false;
+			}
+			
+		}
+		
+		
+}
+        return true;
+    }
+}
