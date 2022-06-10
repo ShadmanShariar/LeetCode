@@ -1,0 +1,39 @@
+class Solution {
+    public String largestWordCount(String[] a, String[] b) {
+        HashMap<String,Integer> hm = new HashMap<String,Integer>();
+int max = Integer.MIN_VALUE;
+int [] w = new int[a.length];
+for (int i = 0; i < a.length; i++) {
+	String [] tmp = a[i].split(" ");
+	w [i] = tmp.length;
+	max = Math.max(max, tmp.length);
+}
+for (int i = 0; i < b.length; i++) {
+	if(hm.containsKey(b[i])) {
+		
+		int tmp = hm.get(b[i])+w[i];
+		hm.put(b[i], tmp);
+		w[i] = tmp;
+		max =Math.max(max, tmp);
+	}
+	else {
+		hm.put(b[i],w[i]);
+	}
+}
+
+TreeSet<String> ts = new TreeSet<String>(Comparator.reverseOrder());
+for (int i = 0; i < w.length; i++) {
+	
+	if(w[i]==max) {
+		ts.add(b[i]);
+	}
+	
+}
+        String g ="";
+for(String name : ts) {
+	g = name;
+break;
+}
+        return g;
+    }
+}
