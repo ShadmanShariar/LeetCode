@@ -62,7 +62,7 @@ class Solution
          Arrays.sort(arr, new itemComparator()); 
         
         int curWeight = 0; 
-        double finalvalue = 0.0; 
+        double finalvalue = 0; 
         
         for (int i = 0; i < n; i++) {
        
